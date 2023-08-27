@@ -1,0 +1,335 @@
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  font-size: 10px;
+  font-family: "PingFang SC Regular";
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin flexCenter($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin boxShadow {
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.08);
+}
+
+@mixin imgStyle(
+  $width: 80rem,
+  $height: 50.5rem,
+  $max-width: 140.8rem,
+  $padding-top: 4rem
+) {
+  width: $width;
+  height: $height;
+  max-width: $max-width;
+  padding-top: $padding-top;
+}
+
+header {
+  @include flexCenter(row, space-between, center);
+  padding: 1.6rem 4.8rem;
+
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+
+  .nav-right {
+    @include flexCenter(row, center, center);
+    gap: 1.2rem;
+    .apply-status {
+      @include flexCenter(row, center, center);
+      padding: 0.5rem 1.6rem;
+
+      border-radius: 1.6rem;
+      background: rgba(0, 127, 255, 0.16);
+
+      color: #007fff;
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+    }
+
+    .avatar {
+      @include flexCenter(row, center, center);
+      width: 3.2rem;
+      aspect-ratio: 1/1;
+      padding: 0.5rem 0.2rem;
+
+      border-radius: 3.2rem;
+      background: #0089ff;
+
+      color: #fff;
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
+  }
+}
+
+main {
+  @include flexCenter(column, center, center);
+  width: 100%;
+  position: relative;
+  img.hero_background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  img.title {
+    max-width: 100%;
+    margin-top: 11.1rem;
+  }
+
+  .info-group {
+    margin-top: 4.8rem;
+    @include flexCenter(column, center, center);
+    .download {
+      @include flexCenter(column, center, center);
+      span {
+        @include flexCenter(row, center, center);
+
+        padding: 1.4rem 1.6rem;
+        border-radius: 0.8rem;
+        background: #fff;
+        @include boxShadow();
+
+        color: #171a1d;
+        font-size: 1.4rem;
+        line-height: 2.2rem;
+      }
+      .pseudo {
+        width: 1.6rem;
+        height: 2.8rem;
+
+        background: #fff;
+        border: 14px 8px solid #fff;
+        @include boxShadow();
+      }
+    }
+
+    .btn {
+      @include flexCenter(row, center, center);
+      height: 5rem;
+      padding: 1.4rem 5.4rem;
+
+      border-radius: 0.8rem;
+      background: linear-gradient(130deg, #8f70ff 5%, #ff5e2b 97%);
+
+      color: #fff;
+      text-align: center;
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+    }
+
+    .description {
+      @include flexCenter(row, center, center);
+      margin-top: 1.4rem;
+      color: rgba(23, 26, 29, 0.4);
+      font-size: 1.2rem;
+    }
+  }
+
+  .video {
+    margin-top: 7.4rem;
+    width: 80rem;
+    aspect-ratio: 3840/2160;
+    max-width: calc(100% - 3.2rem);
+    overflow: hidden;
+    border-radius: 1.2rem;
+  }
+
+  .hint {
+    @include flexCenter(row, center, center);
+    margin-top: 2.4rem;
+    gap: 0.4rem;
+    margin-bottom: 4rem;
+    span {
+      color: #3d3d3d;
+      font-size: 1.2rem;
+
+      &.code {
+        @include flexCenter(row, center, center);
+        font-size: 1.2rem;
+        font-weight: 500;
+        border-radius: 0.4rem;
+        background: #f6f6f6;
+        padding: 0.2rem 0.6rem;
+      }
+    }
+  }
+}
+
+section {
+  width: 100%;
+  height: 100%;
+  @include flexCenter(column, center, center);
+  font-size: 5rem;
+
+  &.space,
+  &.ai {
+    background: #fafafa;
+  }
+
+  &.cloud,
+  &.work {
+    background: #fff;
+  }
+}
+
+.space {
+  display: flex;
+  .title {
+    width: 28.13rem;
+    height: 3.6rem;
+    max-width: 144rem;
+    padding: 0 1.6rem;
+  }
+  span {
+    padding-top: 1.95rem;
+    line-height: 3.14rem;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #171a1d;
+  }
+  .image {
+    width: 2rem;
+    aspect-ratio: 1/1;
+  }
+  .slide-header {
+    @include flexCenter();
+    padding: 2rem 18.5rem;
+    width: 80rem;
+    height: 58.44rem;
+  }
+}
+
+.cloud {
+  .title {
+    width: 28.13rem;
+    height: 3.6rem;
+    max-width: 144rem;
+  }
+  span {
+    color: #171a1d;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 3.143rem;
+    padding-top: 1.95rem;
+  }
+  .cloud-img {
+    @include imgStyle();
+  }
+}
+
+.ai {
+  .title {
+    width: 40.939rem;
+    height: 3.6rem;
+    max-width: 144rem;
+  }
+  span {
+    font-size: 1.9rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 3.143rem;
+    padding: 1.95rem 1.64rem 0 0;
+  }
+  .ai-img {
+    @include imgStyle();
+  }
+}
+
+.work {
+  .title {
+    width: 28.13rem;
+    height: 3.6rem;
+    max-width: 144rem;
+  }
+  span {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 3.143rem;
+    padding-top: 1.95rem;
+  }
+  .work-img {
+    @include imgStyle();
+  }
+}
+
+footer {
+  width: 100%;
+  height: 40rem;
+  @include flexCenter(column, center, center);
+  font-size: 5rem;
+  position: relative;
+  .footer-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+  .footer-title-1 {
+    width: 25.2rem;
+    height: 3.207rem;
+    max-width: 140.8rem;
+    padding-bottom: 1rem;
+  }
+  .footer-title-2 {
+    width: 3.6rem;
+    aspect-ratio: 1/1;
+    margin-bottom: 2.4rem;
+  }
+
+  .btn {
+    @include flexCenter(row, center, center);
+    height: 5rem;
+    padding: 1.4rem 5.4rem;
+
+    border-radius: 0.8rem;
+    background: linear-gradient(130deg, #8f70ff 5%, #ff5e2b 97%);
+
+    color: #fff;
+    text-align: center;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+  }
+
+  .description {
+    @include flexCenter(row, center, center);
+    margin-top: 1.4rem;
+    color: rgba(23, 26, 29, 0.4);
+    font-size: 1.2rem;
+  }
+}
