@@ -63,6 +63,7 @@ header {
   position: fixed;
   z-index: 999;
 
+  background:#fff;
   .nav-right {
     @include flexCenter(row, center, center);
     gap: 1.2rem;
